@@ -46,9 +46,7 @@ public class FuzzyBox : MonoBehaviour {
 		if(!selected && this.transform.position.y < 0.6f)
 		{
             // Convert position of box to value between 0 and 100
-            double result = engine.Defuzzify(new { distance = ((double)this.transform.position.x + (rigidbody.velocity.x * Speedmult) - Center.transform.position.x) });
-
-
+            double result = engine.Defuzzify(new { distance = ((double)this.transform.position.x /*+ (rigidbody.velocity.x * Speedmult)*/ - Center.transform.position.x) });
 
             rigidbody.AddForce(new Vector3((float)(result), 0f, (float)0));
 		}

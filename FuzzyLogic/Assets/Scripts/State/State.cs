@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class State : MonoBehaviour
 {
-
+   protected FiniteStateMachine finiteStateMachine;
    public enum positionState
     {
         FarLeft,
@@ -14,8 +14,9 @@ public class State : MonoBehaviour
         Right,
         FarRight
     }
-
-    public virtual void Init(bool direction, bool distance) { }
     public virtual void Move(GameObject box) { }
+    public virtual void TransitionCheck(GameObject box, GameObject target) { }
     public positionState location;
+    protected float farDistance = 24f;
+    protected float nearDistance = 8f;
 }
